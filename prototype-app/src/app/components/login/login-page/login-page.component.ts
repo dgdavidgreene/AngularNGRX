@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
 
 //import { AlertService } from '@app/shared/alerts';
 
-//import { AuthenticationService } from '@app/core/auth';
+import { AuthenticationService } from '@app/core/auth';
 
 @Component({
   selector: 'app-login-page',
@@ -30,10 +30,10 @@ export class LoginPageComponent implements OnInit {
 
     constructor(
         private store: Store<any>,
-        private formBuilder: FormBuilder
-        /*private route: ActivatedRoute,
-        private router: Router,
-        private authenticationService: AuthenticationService,
+        private formBuilder: FormBuilder,
+        private route: ActivatedRoute,
+        private router: Router
+                /*private authenticationService: AuthenticationService ,
         private alertService: AlertService*/
     ) {
         // redirect to home if already logged in
@@ -46,7 +46,7 @@ export class LoginPageComponent implements OnInit {
     ngOnInit() {
         
         // get return url from route parameters or default to '/'
-        /*this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';*/
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';/**/
     }
 
     // convenience getter for easy access to form fields
@@ -68,7 +68,7 @@ export class LoginPageComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                    this.alertService.error(error);
+                    //this.alertService.error(error);
                     this.loading = false;
                 });*/
     }
